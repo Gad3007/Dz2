@@ -1,11 +1,34 @@
-﻿Console.Write("Введите число - ");
-int number = Convert.ToInt32(Console.ReadLine());
-if(number > 99 || number < -99)
+﻿// Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+// 645 -> 5
+// 78 -> третьей цифры нет
+// 32679 -> 6
+
+int Promt(string message) // метод вызова ввода числа в терминале
 {
-    int result = number % 1000 / 100;
-    Console.Write(result);
+    Console.Write(message);
+    string value = Console.ReadLine();
+    int result = Convert.ToInt32(value);
+    return result;
 }
-else
+
+int Zadacha(int number) // метод нахождения третьего числа 
 {
-    Console.Write("Третьей цифры нет");
-} 
+    while (number > 999) // пока число больше 999 дели его на 10 
+        {
+        number = number / 10;
+        }
+    return number % 10; // когда оно стало трехзначным верни остаток от деления
+}
+   
+ 
+
+int number = Promt("Введите число "); //иницаиализация переменной с присвоением ей результата метода
+if (number < 100) // если число меньше 100 
+{
+    Console.Write("Третьей цифры нет "); //то вот так
+}
+else //иначе 
+{
+   Console.Write(Zadacha(number)); //вот так
+}
+  
